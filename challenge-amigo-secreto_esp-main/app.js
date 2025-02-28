@@ -6,10 +6,10 @@ let amigos = [];
 //Función Agregar Amigos
 function agregarAmigo() {
     //Obtener el valor del campo de entrada
-    let amigo = document.getElementById('amigo').value;
+    let amigo = document.getElementById("amigo").value.trim();
 
     //Validación de que no esté vacío el campo.
-    if (amigo.trim() === "") {
+    if (!amigos) {
         alert("Por favor, ingresa un nombre.");
         return;
     }
@@ -20,11 +20,32 @@ function agregarAmigo() {
 
     //Limpiar el campo de entrada
     document.getElementById('amigo').value = "";
+    renderizarAmigos();
+    //Agregar Foco al Imput
+    document.getElementById('amigo').focus();
 }
 
+function renderizarAmigos() {
+    let listaAmigos = document.getElementById("listaAmigos");
+    listaAmigos.innerHTML = "";
 
+    for (let index = 0; index < amigos.length; index++) {
+        let item = document.createElement("li");
+        item.textContent = amigos[index];
+        listaAmigos.appendChild(item);
+    }
+}
+function sortearAmigo() {
+    if (amigos.length === 0) {
+        alert("No hay amigos, debes ingresar al menos 1 por favor");
+        return;
+    }
+    let amigoSorteado = amigos[Math.floor(Math.random() * amigos.length)];
+    let resultado = document.getElementById("resultado");
+    resultado.innerHTML = `El amigo sorteado es: ${amigoSorteado}`;
+}
 
-//Implementa una función para agregar amigos
+//Impl n edementa una función para agregar amigos
 
 //Desarrolla una función, que permita al usuario
 // ingresar un nombre en el campo de texto y añadirlo
