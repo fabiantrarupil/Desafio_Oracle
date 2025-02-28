@@ -43,9 +43,13 @@ function sortearAmigo() {
     let amigoSorteado = amigos[Math.floor(Math.random() * amigos.length)];
     let resultado = document.getElementById("resultado");
     resultado.innerHTML = `El amigo sorteado es: ${amigoSorteado}`;
+
+    let limpiarLista = document.getElementById("listaAmigos");
+    limpiarLista.innerHTML = "";
+    amigos = [];
 }
 
-//Impl n edementa una función para agregar amigos
+//Implemeta una función para agregar amigos
 
 //Desarrolla una función, que permita al usuario
 // ingresar un nombre en el campo de texto y añadirlo
